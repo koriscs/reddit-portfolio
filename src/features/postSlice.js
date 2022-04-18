@@ -13,11 +13,7 @@ function datatrimming(raw) {
             self: post.self,
             url_dest: post.url_overridden_by_dest,
             url: post.url,
-            media: {
-                reddit_video: {
-                    fallback_url: post.fallback_url
-                }
-            },
+            media: post.media,
             thumbnail: post.thumbnail,
             permalink: post.permalink
     
