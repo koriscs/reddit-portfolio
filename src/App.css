@@ -2,7 +2,7 @@
 *{
   margin: 0;
   padding: 0;
-  /* border: 1px solid red;   */
+  /* border: 1px solid red;    */
 }
 
 .Header {
@@ -38,9 +38,14 @@
 }
 .PostMain {
   /* margin-top: 12vh; */
+  margin: auto;
   text-align: center;
-}
+  width: 80vw;
 
+}
+.PostMain h3 {
+  color: red;
+}
 .Header img {
   max-height: 10vh;
 }
