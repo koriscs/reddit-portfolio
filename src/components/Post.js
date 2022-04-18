@@ -1,3 +1,4 @@
+import { applyMiddleware } from '@reduxjs/toolkit';
 import React from 'react';
 
 
@@ -8,7 +9,7 @@ import React from 'react';
     return text.substring(0, shortened);
   }
 
-    const {title, selftext, thumbnail, media} = props;
+    let {title, selftext, thumbnail, media, preview} = props;
 
     let videoUrl='';
     if(media) {
@@ -20,7 +21,11 @@ import React from 'react';
     if(thumbnail.includes('https') && !videoUrl) {
       picture = thumbnail;
     }
-
+    
+    if(preview) {
+      preview = preview.images[0].source.url;
+      console.log(preview);
+    }
 
   return (
     <div className="Post">
@@ -28,6 +33,7 @@ import React from 'react';
         <p>{truncateText(selftext,500)}</p>
         {videoUrl ? <video autoPlay controls muted src={videoUrl} />: ""}
         {picture ? <img src={picture}  /> : ""}
+        <img src={preview && preview.replace('&amp;', '&')} />
     </div>
   );
 }

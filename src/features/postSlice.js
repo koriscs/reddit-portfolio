@@ -4,10 +4,11 @@ function datatrimming(raw) {
     const trimmeddata = raw.map(post => ({
         subreddit_name_prefixed: post.subreddit_name_prefixed,
             author: post.author,
-            //created_utc: post.created_utc,
+            created_utc: post.created_utc,
             title: post.title,
             ups: post.ups,
             num_comments: post.num_comments,
+            preview: post.preview.images[0].source.url,
             post_hint: post.post_hint,
             selftext: post.selftext,
             self: post.self,
@@ -32,7 +33,8 @@ export const loadPosts = createAsyncThunk(
       console.log(json);  
       const data = json.data.children.map(postdata => postdata.data);
       console.log(data);
-        return datatrimming(data)
+
+        return data
       
     }
   )

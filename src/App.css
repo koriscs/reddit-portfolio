@@ -41,7 +41,6 @@
 .PostMain {
   margin: 16vh auto;
   text-align: center;
-  width: 80vw;
 
 }
 .PostMain h3 {
@@ -73,10 +72,9 @@
   margin-right: 10px;
 }
 .Post {
-  width: 100%;
-  max-height: 50vh;
-  min-height: 15vh;
+  height: 50vh;
 }
+
 .Post video {
   width: 300px;
   height: 300px;
