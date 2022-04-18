@@ -6,7 +6,7 @@ function Header() {
   return (
     <div className="Header">
         <div className='logo'><img src={logo} alt='Reddit-logo' /></div>
-        <div className='title'><h1>RedditMin</h1></div>
+        <div className='title'><h1>Redd<span>i</span>tMin</h1></div>
         <SearchBar />
     </div>
   );
