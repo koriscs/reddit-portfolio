@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector  } from 'react-redux';
-import { loadPosts, selectData } from "../features/postSlice";
+import { loadPosts, selectCategories, selectData, selectSearchTerm, selectState } from "../features/postSlice";
 import Post from './Post';
 
 
@@ -10,16 +10,12 @@ function PostMain() {
  const dispatch = useDispatch();
 
  const posts = useSelector(selectData); 
-
- function truncateText (text, limit) {
-   const shortened = text.indexOf(' ', limit);
-   if(shortened == -1 ) return text;
-   return text.substring(0, shortened);
- }
+ const searchTerm = useSelector(selectSearchTerm);
+ const categories = useSelector(selectCategories);
 
   useEffect( () => {
-    dispatch(loadPosts())
-  },[dispatch])
+    dispatch(loadPosts({searchTerm, categories}))
+  },[dispatch,searchTerm,categories])
 
   return (
     <div className="PostMain">

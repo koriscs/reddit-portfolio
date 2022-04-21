@@ -2,9 +2,10 @@
 *{
   margin: 0;
   padding: 0;
-  border: 1px solid red;    
+  /* border: 1px solid red;     */
 }
 
+/*-----Header------*/
 .Header {
   position: fixed;
   top: 0px;
@@ -21,30 +22,6 @@
 }
 .title span {
   color: #FF4500;
-}
-.Selections {
-  position: fixed;
-  top: 12vh;
-  display: inline-flex;
-  justify-content: center;
-  width: 100%;
-  gap: 2px;
-}
-.Selections * {
-  border: #FF4500 solid 2px;
-  border-radius: 10px;
-  width: 100px;
-  padding: 5px;
-  text-align: center;
-  z-index: 3;
-}
-.PostMain {
-  margin: 16vh auto;
-  text-align: center;
-
-}
-.PostMain h3 {
-  color: red;
 }
 .Header img {
   max-height: 10vh;
@@ -71,16 +48,64 @@
 .SearchBar {
   margin-right: 10px;
 }
+/*----Selections------*/
+.Selections {
+  position: fixed;
+  top: 13vh;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  gap: 2px;
+  background-color: rgb(235, 235, 235);
+}
+.Selections * {
+  border: #FF4500 solid 2px;
+  border-radius: 10px;
+  width: 100px;
+  padding: 5px;
+  text-align: center;
+  z-index: 3;
+}
+/*----MainPosts------*/
+.PostMain {
+  position:static;
+   margin-top: 17vh; 
+  /* padding-top: 5px; */
+  text-align: center;
+  background-color: rgb(235, 235, 235);
+
+}
+.Post-header {
+  display: flex;
+  justify-content: space-between;
+}
 .Post {
-  height: 50vh;
+  margin:5px auto 5px ;
+  width: 80vw;
+  max-width: 1000px;
+  background-color: white;
 }
 
-.Post video {
-  width: 300px;
-  height: 300px;
-  
-}
 .Post img {
   max-height: 50vh;
   min-height: 15vh;
+  width: 50vw;
+  height: 40vh;
+  aspect-ratio: 1 / 1;
+}
+.Post video {
+  max-height: 50vh;
+  min-height: 15vh;
+  width: 50vw;
+  height: 40vh;
+  aspect-ratio: 1 / 1;
+}
+
+.Post-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.Post-footer-votes {
+  display:inline-flex;
+
 }
