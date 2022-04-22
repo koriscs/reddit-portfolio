@@ -2,20 +2,23 @@
 import React, { useState } from 'react';
 import commentImg from '../img/comments.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadCommentsByPost } from '../features/commentsSlice';
+import { loadCommentsByPost, toggleVisibility ,selectCommentVisibility, isLoading} from '../features/commentsSlice';
 import Comments from './Comments';
 import { created,} from '../utils/utils';
 import Media from './Media';
+import Loading from '../img/Loading-bar.gif';
 
  function Post({props}) {
   const {author} = props;
-  const [showComments, setShowComments] = useState(false);
   const dispatch = useDispatch();
   const comments = useSelector(state => state.comments.comments[props.permalink] ? state.comments.comments[props.permalink]: null)
+  const commentsVisibility = useSelector(selectCommentVisibility);
+  const loading = useSelector(isLoading);
 
   const handleLoadComments = () => {
-    setShowComments(showComments => !showComments);
-    if (!comments) dispatch(loadCommentsByPost(props.permalink));
+    if (!comments)  
+    dispatch(loadCommentsByPost(props.permalink));
+    dispatch(toggleVisibility(!commentsVisibility));
 }
 
   return (
@@ -35,8 +38,9 @@ import Media from './Media';
           <img className='Comments-image' src={commentImg} alt='comment bubble' />
           <p>{props.num_comments}</p>
         </div>
+        {loading && <img src={Loading} alt='loading' className='Comment-loading' />}
       </div>
-        <Comments comments={comments} showComments={showComments} />
+        <Comments comments={comments} commentsVisibility={commentsVisibility} />
     </div>
   );
 }

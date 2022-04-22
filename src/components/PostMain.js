@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector  } from 'react-redux';
-import { loadPosts, selectCategories, selectData, selectSearchTerm, selectState } from "../features/postSlice";
+import { isLoading, loadPosts, selectCategories, selectData, selectSearchTerm, selectState } from "../features/postSlice";
 import Post from './Post';
-
+import loadingImg from '../img/Loading-bar.gif';
 
 
 function PostMain() {
-
+ const loading = useSelector(isLoading);
  const dispatch = useDispatch();
 
  const posts = useSelector(selectData); 
@@ -19,6 +19,7 @@ function PostMain() {
 
   return (
     <div className="PostMain">
+      {loading && <img src={loadingImg} alt='loading' className='Main-loading' />}
       {posts.map((post, index) => {
         return <Post props={post} key={index} />
       })}

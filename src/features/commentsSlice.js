@@ -19,24 +19,33 @@ const commentsSlice = createSlice({
     name: 'comments',
     initialState: {
         comments: {},
+        commentsVisibility: false,
         isLoading: false,
         isError: false
     },
+    reducers: {
+        toggleVisibility: (state,action) => {
+            state.SeeComments = action.payload;
+        }
+    },
     extraReducers: {
-        [loadCommentsByPost.loading]: (state,action) =>{
-            state.isLoading = true
-            state.isError = false
+        [loadCommentsByPost.pending]: (state,action) =>{
+            state.isLoading = true;
+            state.isError = false;
         },
         [loadCommentsByPost.fulfilled] : (state,action) =>{
             state.comments[action.payload.link] = action.payload.topComments
-            state.isLoading = false
-            state.isError = false
+            state.isLoading = false;
+            state.isError = false;
         },
         [loadCommentsByPost.rejected]: (state,action) =>{
-            state.isLoading = false
-            state.isError = true
+            state.isLoading = false;
+            state.isError = true;
         }
     }
 })
+export const selectCommentVisibility = state => state.comments.SeeComments;
+export const isLoading = state => state.comments.isLoading;
 
+export const {toggleVisibility} = commentsSlice.actions;
 export default commentsSlice.reducer

@@ -55,7 +55,7 @@ export const postsSlice = createSlice({
 export const selectData = (state) =>state.posts.posts;
 export const selectSearchTerm = (state) => state.posts.searchTerm;
 export const selectCategories =(state) => state.posts.categories;
-
+export const isLoading = state => state.posts.isLoading;
 
 export const { manageSearchTerm, manageCategories } = postsSlice.actions;
 export default postsSlice.reducer;
