@@ -1,8 +1,8 @@
 import React from 'react';
 import Comment from './Comment';
 
-function Comments({comments, commentsVisibility}) {
-if(!comments || !commentsVisibility) {
+function Comments({comments, showComments}) {
+if(!comments || !showComments) {
     return null;
 }
   return (

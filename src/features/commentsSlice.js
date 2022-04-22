@@ -19,7 +19,7 @@ const commentsSlice = createSlice({
     name: 'comments',
     initialState: {
         comments: {},
-        commentsVisibility: false,
+        // commentsVisibility: false,
         isLoading: false,
         isError: false
     },
@@ -44,7 +44,7 @@ const commentsSlice = createSlice({
         }
     }
 })
-export const selectCommentVisibility = state => state.comments.SeeComments;
+// export const selectCommentVisibility = state => state.comments.SeeComments;
 export const isLoading = state => state.comments.isLoading;
 
 export const {toggleVisibility} = commentsSlice.actions;

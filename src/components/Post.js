@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import commentImg from '../img/comments.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadCommentsByPost, toggleVisibility ,selectCommentVisibility, isLoading} from '../features/commentsSlice';
+import { loadCommentsByPost, isLoading} from '../features/commentsSlice';
 import Comments from './Comments';
 import { created,} from '../utils/utils';
 import Media from './Media';
@@ -12,15 +12,14 @@ import Loading from '../img/Loading-bar.gif';
   const {author} = props;
   const dispatch = useDispatch();
   const comments = useSelector(state => state.comments.comments[props.permalink] ? state.comments.comments[props.permalink]: null)
-  const commentsVisibility = useSelector(selectCommentVisibility);
   const loading = useSelector(isLoading);
+  const [showComments, setShowComments] = useState();
 
   const handleLoadComments = () => {
+    setShowComments(!showComments);
     if (!comments)  
     dispatch(loadCommentsByPost(props.permalink));
-    dispatch(toggleVisibility(!commentsVisibility));
 }
-
   return (
     <div className="Post">
       <div className='Post-header' >
@@ -28,7 +27,7 @@ import Loading from '../img/Loading-bar.gif';
         <p>{props.subreddit_name_prefixed}</p>
         <p>{created(props.created_utc)}</p>
       </div>
-      <Media props={props} />
+      <Media post={props} />
       <div className='Post-footer' >
         <div className='Post-footer-votes'>
           <p>{props.ups}-</p>
@@ -38,9 +37,9 @@ import Loading from '../img/Loading-bar.gif';
           <img className='Comments-image' src={commentImg} alt='comment bubble' />
           <p>{props.num_comments}</p>
         </div>
-        {loading && <img src={Loading} alt='loading' className='Comment-loading' />}
+        {(showComments && !comments) && <img src={Loading} alt='loading' className='Comment-loading' />}
       </div>
-        <Comments comments={comments} commentsVisibility={commentsVisibility} />
+        <Comments comments={comments} showComments={showComments} />
     </div>
   );
 }

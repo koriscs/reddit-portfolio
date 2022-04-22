@@ -20,7 +20,7 @@ function PostMain() {
   return (
     <div className="PostMain">
       {loading && <img src={loadingImg} alt='loading' className='Main-loading' />}
-      {posts.map((post, index) => {
+      {loading || posts.map((post, index) => {
         return <Post props={post} key={index} />
       })}
     </div>

@@ -86,14 +86,14 @@
   background-color: white;
 }
 
-.Content-image {
+.Post-media .img {
   max-height: 50vh;
   min-height: 15vh;
   width: 50vw;
   height: 40vh;
   aspect-ratio: 1 / 1;
 }
-.Content-video {
+.Post-media .video, .youtube-container {
   max-height: 50vh;
   min-height: 15vh;
   width: 50vw;
@@ -111,7 +111,7 @@
 }
 .Post-footer-comments {
   display: inline-flex;
-  gap: 5px;
+  gap: 5px;  
 }
 .Comments-image {
   width: 20px;
