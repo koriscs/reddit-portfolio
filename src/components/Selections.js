@@ -1,23 +1,59 @@
 import React, { useState } from 'react';
 import {useDispatch} from 'react-redux';
 import {manageCategories, manageSearchTerm} from '../features/postSlice';
+import activeBestImg from '../img/bestActive.png';
+import activeHotImg from '../img/hotActive.png';
+import activeNewImg from '../img/newActive.png';
+import inactiveBestImg from '../img/bestInactive.png';
+import inactiveHotImg from '../img/hotInactive.png';
+import inactiveNewImg from  '../img/newInactive.png';
+
 
 function Selections() {
 
   const [categories, setCategories] = useState('');
+  const [bestImgState, SetBestImgState] = useState(activeBestImg);
+	const [hotImgState, SetHotImgState] = useState(inactiveHotImg);
+	const [newImgState, SetNewImgState] = useState(inactiveNewImg);
 
   const dispatch = useDispatch();
 
-  const handleCategories = (e) => {
+ 
+  
+  // handles when Best button is clicked
+	const handleBestButtonClick = (e) => {
+		SetBestImgState(activeBestImg);
+		SetHotImgState(inactiveHotImg);
+		SetNewImgState(inactiveNewImg);
     setCategories(e.target.value);
     dispatch(manageSearchTerm(''));
     dispatch(manageCategories(e.target.value));
-  }
+	};
+
+	// handles when Hot button is clicked
+	const handleHotButtonClick = (e) => {
+		SetBestImgState(inactiveBestImg);
+		SetHotImgState(activeHotImg);
+		SetNewImgState(inactiveNewImg);
+    setCategories(e.target.value);
+    dispatch(manageSearchTerm(''));
+    dispatch(manageCategories(e.target.value));
+	};
+
+	// handles when New button is click
+	const handleNewButtonClick = (e) => {
+		SetBestImgState(inactiveBestImg);
+		SetHotImgState(inactiveHotImg);
+		SetNewImgState(activeNewImg);
+    setCategories(e.target.value);
+    dispatch(manageSearchTerm(''));
+    dispatch(manageCategories(e.target.value));
+	};
    return (
     <div className="Selections">
-        <button className='Best' value='best' onClick={handleCategories} >Best</button>
-        <button className='Top' value='top' onClick={handleCategories} >Top</button>
-        <button className='New' value='new' onClick={handleCategories} >New</button>
+       <input type="image" src={bestImgState}  alt="best" className='Best' value='best' onClick={handleBestButtonClick} />
+       <input type="image" src={hotImgState} alt="hot" className='Hot' value='top' onClick={handleHotButtonClick} />
+       <input type="image" src={newImgState} alt="new" className='New' value='new' onClick={handleNewButtonClick} />
      </div>
   );
 }

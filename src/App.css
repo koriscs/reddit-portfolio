@@ -11,26 +11,29 @@
   top: 0px;
   display: inline-flex;
   width: 100%;
-  background-color: rgb(255, 166, 0);
+  background-color: white;
   justify-content: space-between;
   align-items: center;
-  height: 12vh;
+  height: 75px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   margin-top: 0;
-  color: white;
+  color: black;
+  border-bottom: solid 2px grey;
+  box-shadow: 2px 5px 8px #888888;
+  z-index: 3;
 }
 .title span {
   color: #FF4500;
 }
 .Header img {
-  max-height: 10vh;
+  max-height: 70px;
 }
 .Header input {
   padding: 10px;
   padding-left: 30px;
   border-radius: 10px;
-  border-color: aliceblue;
+  border: solid grey 1px;
   width: 20vw;
   background-image: url('./img/search.png'); 
   background-position: 10px 10px;
@@ -50,29 +53,22 @@
 }
 /*----Selections------*/
 .Selections {
-  position: fixed;
-  top: 13vh;
+  margin-top: 90px;
+  padding-bottom: 5px;
   display: inline-flex;
   justify-content: center;
   width: 100%;
-  gap: 2px;
-  background-color: rgb(235, 235, 235);
+  gap: 5vw;
 }
-.Selections * {
-  border: #FF4500 solid 2px;
-  border-radius: 10px;
-  width: 100px;
-  padding: 5px;
-  text-align: center;
-  z-index: 3;
+
+.Selections input {
+  width: 40px;
+  height: 40px;
 }
 /*----MainPosts------*/
 .PostMain {
-  position:static;
-   margin-top: 17vh; 
-  /* padding-top: 5px; */
   text-align: center;
-  background-color: rgb(235, 235, 235);
+  background-color: white;
 
 }
 .Post-header {
@@ -100,7 +96,14 @@
   height: 40vh;
   aspect-ratio: 1 / 1;
 }
-
+.Post-media iframe {
+  max-height: 50vh;
+  min-height: 15vh;
+  width: 50vw;
+  height: 40vh;
+  aspect-ratio: 1 / 1;
+  margin-left: 15vw;
+}
 .Post-footer {
   display: flex;
   justify-content: space-between;

@@ -25,7 +25,6 @@ function SearchBar() {
   return (
     <div className="SearchBar">
         <input value={searchTerm} onChange={(e)=>{setSerachTerm(e.target.value)}} onKeyDown={handleKeypress} type="text" name='searchBar' placeholder='Search...' />
-        <button onClick={handleSearch} >Search</button>
     </div>
   );
 }
