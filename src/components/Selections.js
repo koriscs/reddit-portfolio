@@ -13,8 +13,6 @@ function Selections() {
     dispatch(manageSearchTerm(''));
     dispatch(manageCategories(e.target.value));
   }
-
-
   return (
     <div className="Selections">
         <button className='Best' value='best' onClick={handleCategories} >Best</button>
