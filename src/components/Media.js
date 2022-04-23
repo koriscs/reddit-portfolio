@@ -46,15 +46,14 @@ function Media({post}) {
 
                         {//Post link
                             post.post_hint === 'link' &&
-                            <div>
+                            <div className='link-container'>
                                 <a 
                                     className="content-link"
                                     href={post.url}
                                     target="_blank"
                                     rel="noreferrer"
-                                >
-                                    {post.url}
-                                </a>
+                                >Link to the article!
+                                            </a>
                             </div>
                         }
 
