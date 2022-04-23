@@ -12,7 +12,6 @@ import {isLoading} from '../features/postSlice';
 
 function Selections() {
 
-  const [categories, setCategories] = useState('');
   const [bestImgState, SetBestImgState] = useState(activeBestImg);
 	const [hotImgState, SetHotImgState] = useState(inactiveHotImg);
 	const [newImgState, SetNewImgState] = useState(inactiveNewImg);
@@ -21,14 +20,16 @@ function Selections() {
 
  
   
+
+
   // handles when Best button is clicked
 	const handleBestButtonClick = (e) => {
 		SetBestImgState(activeBestImg);
 		SetHotImgState(inactiveHotImg);
 		SetNewImgState(inactiveNewImg);
-    setCategories(e.target.value);
-    dispatch(manageSearchTerm(''));
     dispatch(manageCategories(e.target.value));
+    dispatch(manageSearchTerm(''));
+    
 	};
 
 	// handles when Hot button is clicked
@@ -36,9 +37,8 @@ function Selections() {
 		SetBestImgState(inactiveBestImg);
 		SetHotImgState(activeHotImg);
 		SetNewImgState(inactiveNewImg);
-    setCategories(e.target.value);
-    dispatch(manageSearchTerm(''));
     dispatch(manageCategories(e.target.value));
+    dispatch(manageSearchTerm(''));
 	};
 
 	// handles when New button is click
@@ -46,9 +46,8 @@ function Selections() {
 		SetBestImgState(inactiveBestImg);
 		SetHotImgState(inactiveHotImg);
 		SetNewImgState(activeNewImg);
-    setCategories(e.target.value);
-    dispatch(manageSearchTerm(''));
     dispatch(manageCategories(e.target.value));
+    dispatch(manageSearchTerm(''));
 	};
    return (
      <div className='Selection-container'>

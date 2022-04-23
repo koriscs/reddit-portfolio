@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import commentImg from '../img/comments.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadCommentsByPost, isLoading} from '../features/commentsSlice';
+import { loadCommentsByPost,} from '../features/commentsSlice';
 import Comments from './Comments';
 import { created,} from '../utils/utils';
 import Media from './Media';
@@ -13,10 +13,8 @@ import downVote from '../img/downvote.png';
 
 
  function Post({props}) {
-  const {author} = props;
   const dispatch = useDispatch();
   const comments = useSelector(state => state.comments.comments[props.permalink] ? state.comments.comments[props.permalink]: null)
-  const loading = useSelector(isLoading);
   const [showComments, setShowComments] = useState();
 
   const handleLoadComments = () => {

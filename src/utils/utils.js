@@ -1,12 +1,11 @@
 export function created(was_created) {
     let currentTime = Date.now() / 1000;
 	let elapsedTimeHour = (currentTime - was_created) / 60 / 60;
-	let timePassed;
 
 	if (elapsedTimeHour < 24) {
-		return timePassed = Math.floor(elapsedTimeHour) + 'h ago';
+		return  Math.floor(elapsedTimeHour) + 'h ago';
 	} else {
-		return timePassed = Math.floor(elapsedTimeHour / 24) + 'd ago';
+		return  Math.floor(elapsedTimeHour / 24) + 'd ago';
 	}
 }
 export function truncateText (text, limit) {
