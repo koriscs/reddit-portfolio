@@ -1,6 +1,4 @@
 import React from 'react';
-//import logo from '../img/reddit-logo.png';
-//import { truncateText} from '../utils/utils';
 import {decode, getVideoURL} from '../utils/utils';
 
 function Media({post}) {

@@ -6,9 +6,13 @@ function Comment({comment}) {
 
   return (
     <div className="Comment">
-      <h4>{comment.author}</h4>
-      <p>{comment.body}</p>
+      <div className='Comment-header' >
+      <h5>{comment.author}</h5>
       <p>{created(comment.created_utc)}</p>
+      </div>
+      <div className='Comment-body' >
+      <p>{comment.body}</p>
+      </div>
     </div>
   );
 }

@@ -1,3 +1,15 @@
+@font-face {
+  font-family: Nova-Mono;
+  src: url('./Fonts/Nova_Mono/NovaMono-Regular.ttf');
+}
+@font-face {
+  font-family: Roboto-Mono;
+  src: url('./Fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf');
+}
+@font-face {
+  font-family: Rubik-Mono;
+  src: url('./Fonts/Rubik_Mono_One/RubikMonoOne-Regular.ttf');
+}
 
 *{
   margin: 0;
@@ -52,6 +64,12 @@
   margin-right: 10px;
 }
 /*----Selections------*/
+.Selection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .Selections {
   margin-top: 90px;
   padding-bottom: 5px;
@@ -68,23 +86,28 @@
 /*----MainPosts------*/
 .PostMain {
   text-align: center;
-  background-color: white;
+  background-color: whitesmoke;
 
 }
 .Post-header {
   display: flex;
   justify-content: space-between;
+  font-family: Roboto-Mono;
+  padding: 5px 10px 0 10px;
+
 }
 .Post {
   margin:5px auto 5px ;
   width: 80vw;
-  max-width: 1000px;
+  max-width: 650px;
   background-color: white;
+  border-radius: 20px;
 }
 
 .Post-media .img {
   max-height: 50vh;
   min-height: 15vh;
+  max-width: 500px;
   width: 50vw;
   height: 40vh;
   aspect-ratio: 1 / 1;
@@ -93,24 +116,35 @@
   max-height: 50vh;
   min-height: 15vh;
   width: 50vw;
+  max-width: 500px;
   height: 40vh;
   aspect-ratio: 1 / 1;
 }
-.Post-media iframe {
+.Post-media .embedly-embed {
   max-height: 50vh;
   min-height: 15vh;
+  max-width: 500px;
   width: 50vw;
   height: 40vh;
   aspect-ratio: 1 / 1;
-  margin-left: 15vw;
+}
+.Post-footer-container {
+  display: flex;
+  flex-direction: column;
 }
 .Post-footer {
   display: flex;
   justify-content: space-between;
+  font-family: Nova-Mono;
+  height: 2rem;
+  padding: 5px 10px 0 10px;
 }
 .Post-footer-votes {
   display:inline-flex;
-
+}
+.Post-footer-votes img {
+  width:16px;
+  height: 16px;
 }
 .Post-footer-comments {
   display: inline-flex;
@@ -119,4 +153,50 @@
 .Comments-image {
   width: 20px;
   height: 20px;
+}
+.Loading-container {
+  text-align: center;
+}
+.Comment-loading {
+  width: 50px;
+  height: 30px;
+}
+/*-----Comments-----*/
+.Comments {
+  background-color: whitesmoke;
+  border-top: solid gray 2px;
+}
+
+.Comment {
+  margin: 10px auto;
+  background-color: white;
+  padding: 0 10px;
+}
+.Comment-header {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.Comment-body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: darkblue;
+}
+@media only screen and (min-width: 900px) {
+  .Post-media .embedly-embed {
+    margin-left: 5rem;
+  }
+  .Post-media .youtube-container {
+    margin-left: 5rem;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .Post-media .embedly-embed {
+    margin-left: 15vw;
+  }
+  .Post-media .youtube-container {
+    margin-left: 15vw;
+  }
+  .logo {
+     flex-basis: 30%; 
+  }
 }

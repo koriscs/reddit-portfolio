@@ -7,6 +7,10 @@ import Comments from './Comments';
 import { created,} from '../utils/utils';
 import Media from './Media';
 import Loading from '../img/Loading-bar.gif';
+import upVote from '../img/upvote.png';
+import downVote from '../img/downvote.png';
+
+
 
  function Post({props}) {
   const {author} = props;
@@ -23,21 +27,24 @@ import Loading from '../img/Loading-bar.gif';
   return (
     <div className="Post">
       <div className='Post-header' >
-        <p>{author}</p>
-        <p>{props.subreddit_name_prefixed}</p>
+        <p>Subbreddit: {props.subreddit_name_prefixed}</p>
         <p>{created(props.created_utc)}</p>
       </div>
       <Media post={props} />
-      <div className='Post-footer' >
+      <div className='Post-footer-container' >
+        <div className='Post-footer' >
         <div className='Post-footer-votes'>
-          <p>{props.ups}-</p>
-          <p>{props.downs}</p>
+          <img src={upVote} alt="upvote" />
+          <p style={{color: "green"}} > {props.ups} -</p>
+          <img src={downVote} alt='downvote' />
+          <p style={{color: "red"}} > {props.downs}</p>
         </div>
         <div className='Post-footer-comments' onClick={handleLoadComments} >
-          <img className='Comments-image' src={commentImg} alt='comment bubble' />
+          <input type="image" className='Comments-image' src={commentImg} alt='comment bubble' />
           <p>{props.num_comments}</p>
         </div>
-        {(showComments && !comments) && <img src={Loading} alt='loading' className='Comment-loading' />}
+      </div>
+        {(showComments && !comments) && <div className='Loading-container' ><img src={Loading} alt='loading' className='Comment-loading' /></div>}
       </div>
         <Comments comments={comments} showComments={showComments} />
     </div>
