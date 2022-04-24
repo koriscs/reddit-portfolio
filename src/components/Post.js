@@ -23,7 +23,7 @@ import downVote from '../img/downvote.png';
     dispatch(loadCommentsByPost(props.permalink));
 }
   return (
-    <div className="Post">
+    <div className="Post">npm 
       <div className='Post-header' >
         <p>Subbreddit: {props.subreddit_name_prefixed}</p>
         <p>{created(props.created_utc)}</p>

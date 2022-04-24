@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Header />
       <Selections />
-      <PostMain />
+      {/* <PostMain /> */}
     </Router>
   );
 }

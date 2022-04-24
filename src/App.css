@@ -79,14 +79,61 @@
   gap: 5vw;
 }
 
-.Selections input {
+ .active  .Best {
+  background-image: url('/src/img/bestActive.png');
+  z-index: 15;
+ }  
+ .active  .Hot {
+  background-image: url('/src/img/hotActive.png');
+  z-index: 15;
+ }  
+
+ .active  .New {
+  background-image: url('/src/img/newActive.png');
+  z-index: 15;
+ }  
+
+
+
+ .Best {
   width: 40px;
   height: 40px;
+   background-image: url('/src/img/bestInactive.png'); 
+  background-position: center;
+  background-size: cover;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  
 }
+
+ .Hot {
+  width: 40px;
+  height: 40px;
+  background-image: url('/src/img/hotInactive.png');
+  background-position: center;
+  background-size: cover;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.New {
+  width: 40px;
+  height: 40px;
+  background-image: url('/src/img/newInactive.png');
+  background-position: center;
+  background-size: cover;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
 /*----MainPosts------*/
 .PostMain {
   text-align: center;
   background-color: whitesmoke;
+  width: 100%;
+  
 
 }
 .Post-header {
