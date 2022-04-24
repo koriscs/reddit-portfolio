@@ -22,7 +22,7 @@ function Selections() {
    return (
       <div className='Selection-container'>
       <div className="Selections">
-      <NavLink  to="/best">
+      <NavLink  to="/">
        <button  className='Best' value='best' onClick={handleSelection}></button>
        </NavLink>
       <NavLink  to="/hot" >
@@ -35,7 +35,7 @@ function Selections() {
         {loading && <div className='Loading-main' ><img src={loadingImg} alt='loading' className='Main-loading' /></div>}
      
       <Routes>
-        <Route path='best' element={<PostMain />} />
+        <Route path='*' element={<PostMain />} />
         <Route path='hot' element={<PostMain />} />
         <Route path='new'  element={<PostMain />}/>
       </Routes>
