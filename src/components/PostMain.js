@@ -20,12 +20,10 @@ function PostMain() {
   const morePosts = () => {
     if(commentNumber >= 25) return;
     setCommentNumber(commentNumber => commentNumber+=5 );
-    console.log(commentNumber);
   }
   const lessPosts = () => {
     if(commentNumber <= 5) return;
     setCommentNumber(commentNumber => commentNumber-=5 )
-    console.log(commentNumber);
   }
   
   return (
